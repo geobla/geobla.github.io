@@ -14,7 +14,7 @@
 
     <hr />
 
-    <p class="intro">
+    <p>
       An HTML form is used to collect user input. The user input is most often
       sent to a server for processing.
     </p>
@@ -98,17 +98,7 @@
         <td>Displays a clickable button</td>
       </tr>
     </table>
-    <p>
-      All the different input types are covered in this chapter:
-      <a href="html_form_input_types.asp">HTML Input Types</a>.
-    </p>
-    <hr />
-    <div id="midcontentadcontainer" style="overflow: auto; text-align: center">
-      <!-- MidContent -->
-      <!-- <p class="adtext">Advertisement</p> -->
 
-      <div id="adngin-mid_content-0"></div>
-    </div>
     <hr />
     <h2>Text Fields</h2>
     <p>
@@ -168,10 +158,13 @@
       button/checkbox.
     </p>
     <p>
-      The <code class="codespan">for</code> attribute of the
-      <code class="codespan">&lt;label&gt;</code> tag should be equal to the
-      <code class="codespan">id</code> attribute of the
-      <code class="codespan">&lt;input&gt;</code> element to bind them together.
+      <span id="yellow">
+        The <code class="codespan">for</code> attribute of the
+        <code class="codespan">&lt;label&gt;</code> tag should be equal to the
+        <code class="codespan">id</code> attribute of the
+        <code class="codespan">&lt;input&gt;</code> element to bind them
+        together.</span
+      >
     </p>
     <hr />
 
@@ -312,5 +305,234 @@
       </div>
     </div>
     <hr />
+    <h2>name vs id in HTML</h2>
+    <h3>Difference between id and name attributes in HTML</h3>
+    <p>
+      What is the difference between the <span class="codespan">id</span> and
+      <span class="codespan">name</span> attributes? They both seem to serve the
+      same purpose of providing an identifier.
+    </p>
+    <p>
+      I would like to know (specifically with regards to HTML forms) whether or
+      not using both is necessary or encouraged for any reasons.
+    </p>
+
+    <h3>Here is a brief summary:</h3>
+    <ul>
+      <li>
+        <p>
+          <code class="codespan">id</code> is used to
+          <strong
+            >identify the HTML element through the
+            <em>Document Object Model</em></strong
+          >
+          (via JavaScript or styled with CSS).
+          <code class="codespan">id</code> is expected to be unique within the
+          page.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code class="codespan">name</code> corresponds to the
+          <code class="codespan">form</code> element and
+          <strong>identifies what is posted back to the server</strong>.
+        </p>
+      </li>
+    </ul>
+    <hr />
+    <div>
+      <h2>
+        <strong><code>name Vs id</code></strong>
+      </h2>
+      <p><strong>name</strong></p>
+      <ul>
+        <li>
+          Name of the element. For example used by the server to identify the
+          fields in form submits.
+        </li>
+        <li>
+          Supporting elements are
+          <span class="codespan"
+            ><code
+              >&lt;button&gt;, &lt;form&gt;, &lt;fieldset&gt;, &lt;iframe&gt;,
+              &lt;input&gt;, &lt;keygen&gt;, &lt;object&gt;, &lt;output&gt;,
+              &lt;select&gt;, &lt;textarea&gt;, &lt;map&gt;, &lt;meta&gt;,
+              &lt;param&gt;</code
+            ></span
+          >
+        </li>
+        <li><span class="codespan">name</span> does not have to be unique.</li>
+      </ul>
+
+      <ul>
+        <li>
+          Often used with CSS to style a specific element. The value of this
+          attribute must be unique.
+        </li>
+        <li>
+          <span class="codespan">id</span> is a Global attribute. It can be used
+          on all elements, though the attributes may have no effect on some
+          elements.
+        </li>
+        <li>Must be unique in the whole document.</li>
+        <li>
+          This attribute's value must not contain white spaces, in contrast to
+          the class attribute, which allows space-separated values.
+        </li>
+        <li>
+          Using characters except ASCII letters and digits, '_', '-' and '.' may
+          cause compatibility problems, as they weren't allowed in HTML 4.
+          Though this restriction has been lifted in HTML 5, an ID should start
+          with a letter for compatibility.
+        </li>
+      </ul>
+    </div>
+    <hr />
+
+    <p>
+      Based on personal experiences and according to the W3 Schools description
+      for attributes:
+    </p>
+    <p>
+      <span class="codespan">id</span> is a Global Attribute and applies to
+      virtually all elements in HTML. It is used to uniquely identify elements
+      on the Web page, and its value is mostly accessed from the frontend
+      (typically through JavaScript or jQuery).
+    </p>
+    <p>
+      <span class="codespan">name</span> is an attribute that is useful to
+      specific elements (such as form elements, etc) in HTML. Its value is
+      mostly sent to the backend for processing.
+    </p>
+    <div class="example">
+      <p>
+        Below is an interesting use of the id attribute. It is used within the
+        tag and used to identify the form for elements outside of the boundaries
+        so that they will be included with the other fields within the form.
+      </p>
+      <div class="code">
+        &lt;form action="action_page.php" id="form1"&gt;&lt;br&gt;<br />
+        First name: &lt;input type="text" name="fname"&gt;&lt;br&gt;<br />
+        &lt;input type="submit" value="Submit"&gt;&lt;br&gt;<br />
+        &lt;/form&gt;<br />
+
+        &lt;p&gt;The "Last name" field below is outside the form element, but
+        still part of the form.&lt;/p&gt; Last name: &lt;input type="text"
+        name="lname" form="form1"&gt;
+      </div>
+      <hr />
+    </div>
+
+    <div>
+      <p>
+        <span class="codespan">id</span> is used to uniquely identify an
+        element.
+      </p>
+      <p>
+        <span class="codespan">name</span> is used in forms. when even u submit
+        a form. and if you dont give any name, nothing will will be submitted.
+        And the ones only with name attribute will go out.
+      </p>
+    </div>
+    <div>
+      <p>
+        <span class="codespan">id</span> tag - used by <strong>CSS</strong>, to
+        define a <strong>unique</strong> instance of a
+        <span class="codespan">div</span> ,
+        <span class="codespan">span</span> or other element. Appears within the
+        Javascript DOM model, allowing you to access them with various function
+        calls.
+      </p>
+      <p>
+        <span class="codespan">name</span> tag for fields. You can access it via
+        <strong>Javascript</strong> by name, but I think that it does not appear
+        as a node in the DOM or some restrictions may apply (you cannot use
+        <span class="codespan">.innerHTML</span>, for example, if I recall
+        correctly).
+      </p>
+    </div>
+    <hr />
+    <div>
+      <p>
+        If you're not using the form's own submit method to send information to
+        a server (and are instead doing it using javascript) you can use the
+        name attribute to attach extra information to an input - rather like
+        pairing it with a hidden input value, but looks neater because it's
+        incorporated into the input.
+      </p>
+      <p>
+        This bit does still currently work in Firefox although I suppose in the
+        future it might not get allowed through.
+      </p>
+      <p>
+        You can have multiple input fields with the same name value, as long as
+        you aren't planning to submit the old fashioned way.
+      </p>
+    </div>
+    <p>
+      What&rsquo;s the difference? The short answer is, use both and don&rsquo;t
+      worry about it. But if you want to understand this goofiness, here&rsquo;s
+      the skinny:
+    </p>
+    <div class="example">
+      <p><span class="codespan">id</span> is used like this:</p>
+      <div class="code">
+        <code>&lt;some-element id="XXX"&gt;&lt;/some-element&gt;</code> for
+        links like this: <code>&lt;a href="#XXX"</code>.
+      </div>
+    </div>
+    <div>
+      <p>
+        The <span class="codespan">name</span> attribute is used when sending
+        data in a form submission. Different controls respond differently. For
+        example, you may have several radio buttons with different
+        <code>id</code> attributes, but the same <code>name</code>. When
+        submitted, there is just the one value in the response - the radio
+        button you selected.
+      </p>
+      <p>
+        Of course, there's more to it than that, but it will definitely get you
+        thinking in the right direction.
+      </p>
+    </div>
+    <hr />
+    <div>
+      <p>
+        The <span class="codespan">id</span> of a form input element has nothing
+        to do with the data contained within the element.<span class="codespan"
+          >id</span
+        >
+        is for hooking the element with <strong>JavaScript</strong> and
+        <strong>CSS</strong>. <br />
+        The <span class="codespan">name</span> attribute, however, is used in
+        the HTTP request sent by your browser to the server as a variable name
+        associated with the data contained in the value attribute.
+      </p>
+    </div>
+    <hr />
+
+    <div>
+      <p>The way I think about it and use it is simple:</p>
+      <p>
+        <span class="codespan">id</span> is used for <strong>CSS</strong> and
+        <strong>JavaScript/jQuery</strong> (has to be unique in a page)
+      </p>
+      <p>
+        <span class="codespan">name</span> is used for form handling in
+        <strong>PHP</strong> when a form is submitted via HTML (has to be unique
+        in a form)
+      </p>
+    </div>
+    <hr />
+    <div>
+      <pre><code>&lt;form action="demo_form.asp"&gt;
+      &lt;label for="male"&gt;Male&lt;/label&gt;
+      &lt;input type="radio" name="sex" id="male" value="male"&gt;&lt;br&gt;
+      &lt;label for="female"&gt;Female&lt;/label&gt;
+      &lt;input type="radio" name="sex" id="female" value="female"&gt;&lt;br&gt;
+      &lt;input type="submit" value="Submit"&gt;
+      &lt;/form&gt;
+    </code></pre>
+    </div>
   </body>
 </html>
