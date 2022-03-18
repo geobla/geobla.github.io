@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const f = document.getElementById('form');
 const q = document.getElementById('query');
 const google = 'https://www.google.com/search?q=site%3A+';
@@ -11,18 +10,4 @@ function submitted(event) {
   win.focus();
 }
 
-=======
-const f = document.getElementById('form');
-const q = document.getElementById('query');
-const google = 'https://www.google.com/search?q=site%3A+';
-const site = 'https://geobla.github.io/index.html';
-
-function submitted(event) {
-  event.preventDefault();
-  const url = google + site + '+' + q.value;
-  const win = window.open(url, '_blank');
-  win.focus();
-}
-
->>>>>>> 36027bf0bb1078da2a8673d88494d914f82e41ae
 f.addEventListener('submit', submitted);
