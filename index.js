@@ -1,7 +1,7 @@
 const f = document.getElementById('form');
 const q = document.getElementById('query');
 const google = 'https://www.google.com/search?q=site%3A+';
-const site = 'geobla.github.io/index.html';
+const site = 'https://geobla.github.io/HTML%20files';
 
 function submitted(event) {
   event.preventDefault();
