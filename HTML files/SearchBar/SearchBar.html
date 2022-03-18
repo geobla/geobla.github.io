@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>How to Add a Search Bar in HTML</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+        <section class="nested-copy-line-height lh-copy sans-serif f5 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>In this tutorial, we are going to add a search bar in HTML to your site!</p>
+            <p>I will walk you through all the components you need to add a search bar in HTML and connect it to Google to search.</p>
+            <p>Google will open in a new tab and only show results for your site.</p>
+            <p>Let's start with the HTML that we need to create a form.</p>
+            <h2 id="html-form">HTML Form</h2>
+            <p>The first thing we need to add is the bar itself. This uses a few HTML elements:</p>
+            <ul>
+            <li><code>&lt;form&gt;</code> - This element is for user input</li>
+            <li><code>&lt;input&gt;</code> - This element has many types the one we will use today is search</li>
+            <li><code>&lt;button&gt;</code> - This element will submit the form and start the search</li>
+            </ul>
+            <p>Here is what the HTML will look like:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt; 
+              &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;q&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search...&#34;</span>&gt;
+              &lt;<span style="color:#f92672">button</span>&gt;Search&lt;/<span style="color:#f92672">button</span>&gt;
+            &lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
+            <p>The above HTML is all we need to create a search bar. There are a few attributes that we are using on the <code>&lt;input&gt;</code> tag. Let's look at these in more detail:</p>
+            <ul>
+            <li>type - This sets how the input looks on the screen. There are many types such as password, checkbox and radio yet here we are using search</li>
+            <li>id - Setting an ID can make it easy to reference the input box from JavaScript which we will use later</li>
+            <li>name - It is common to use &ldquo;q&rdquo; for the search query box name</li>
+            <li>placeholder - This is some text that gives a hint to the user on what the input is for</li>
+            </ul>
+            <p>When the HTML displays on the browser it looks like this:</p>
+            
+              
+              <div class="img-height" style="position: relative; width: 100%; text-align: center; max-height:73px; margin: 20px 0px;">
+              
+                <amp-img
+                alt="Search bar in html"
+                title="Search bar in html"
+                layout="fill"
+                style="max-width:330px; margin: 0 auto;"
+                class="contain"
+                src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/search.webp"
+              >
+                <amp-img
+                  alt="Search bar in html"
+                  title="Search bar in html"
+                  fallback
+                  layout="fill"
+                  style="max-width:330px; margin: 0 auto;"
+                  class="contain"
+                  src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/search.jpg"
+                ></amp-img>
+              </amp-img>
+            </div>
+            
+            
+            <p>For the input, we have used the type search but there is also a text type. It can be a bit confusing on which one you should pick. <br>
+               The two input types are almost the same except the search type has some extra functionality. For example, some browsers will add a delete button to the input tag for you:</p>
+            
+              
+              <div class="img-height" style="position: relative; width: 100%; text-align: center; max-height:33px; margin: 20px 0px;">
+              
+                <amp-img
+                alt="Search bar with delete"
+                title="Search bar with delete"
+                layout="fill"
+                style="max-width:182px; margin: 0 auto;"
+                class="contain"
+                src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/delete.webp"
+              >
+                <amp-img
+                  alt="Search bar with delete"
+                  title="Search bar with delete"
+                  fallback
+                  layout="fill"
+                  style="max-width:182px; margin: 0 auto;"
+                  class="contain"
+                  src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/delete.jpg"
+                ></amp-img>
+              </amp-img>
+            </div>
+            
+            
+            <p>For search boxes, it makes sense to use the search input type and that is what we are going to use here.</p>
+            <p>Our form is not quite finished yet, we need to make sure that screen readers can use it for accessibility.</p>
+            <p>To do this we have to make two changes to the form:</p>
+            <ol>
+            <li>We need to add a <code>role</code> to the form with the value of &ldquo;search&rdquo;. Setting this will cause the screen readers to announce that this form is a search form.</li>
+            <li>We add a <code>aria-label</code> attribute to the <code>&lt;input&gt;</code> element. The screen reader will read aloud the value of this attribute. Set a value that describes what text the search form returns such as “Search through our site content”.</li>
+            </ol>
+            <p>This is our final HTML:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span>&gt;
+              &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;q&#34;</span>
+               <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search...&#34;</span>
+               <span style="color:#a6e22e">aria-label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search through site content&#34;</span>&gt;
+              &lt;<span style="color:#f92672">button</span>&gt;Search&lt;/<span style="color:#f92672">button</span>&gt;
+            &lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
+            <p>Next, we are going to look at making a form pretty by styling the form with CSS.</p>
+            <h2 id="css">CSS</h2>
+            <p>CSS adds style to the search bar changing its look and feel.</p>
+            <p>One addition that can help the user find the search box is to add a magnifying glass or search icon. We will add one of these to the button and create a search box that looks like this:</p>
+            
+              
+              <div class="img-height" style="position: relative; width: 100%; text-align: center; max-height:400px; margin: 20px 0px;">
+              
+                <amp-img
+                alt="How to Add a Search Bar in HTML"
+                title="How to Add a Search Bar in HTML"
+                layout="fill"
+                style="max-width:600px; margin: 0 auto;"
+                class="contain"
+                src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/how-to-add-a-search-bar-in-html.webp"
+              >
+                <amp-img
+                  alt="How to Add a Search Bar in HTML"
+                  title="How to Add a Search Bar in HTML"
+                  fallback
+                  layout="fill"
+                  style="max-width:600px; margin: 0 auto;"
+                  class="contain"
+                  src="https://pagedart.com/images/how-to-add-a-search-bar-in-html/how-to-add-a-search-bar-in-html.jpg"
+                ></amp-img>
+              </amp-img>
+            </div>
+            
+            
+            <p>It's amazing what a bit of color and an icon can do! Looks much better right?</p>
+            <p>Let's look at what we have changed to make it look like this.</p>
+            <p>First, we have added some color to the form itself:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">form</span> {
+              <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#4654e1</span>;
+              <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+              <span style="color:#66d9ef">flex-direction</span>: <span style="color:#66d9ef">row</span>;
+              <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
+            }</code></pre></div>
+            <p>We have set the width and height of the form. We also arrange the items in the form using the <code>flex</code> display.</p>
+            <p>Next, we change the look of the input search box:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">input</span> {
+              <span style="color:#66d9ef">all</span>: <span style="color:#66d9ef">unset</span>;
+              <span style="color:#66d9ef">font</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span> system-ui;
+              <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+              <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+              <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+              <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+            }</code></pre></div>
+            <p>The first line above resets the search box <code>all: unset;</code> design. Many browsers add their own design and it can be hard to style. This can make it easier to style as we need.</p>
+            <p>Then we set the font and make sure that the search bar fills the space with height and width. Lastly, we have added a bit of padding.</p>
+            <p>The next CSS rule is a bit strange! It allows us to set the style of the placeholder text inside the search box. The default is grey text, to change this we need to use this rule:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">::<span style="color:#a6e22e">placeholder</span> {
+              <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+              <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0.7</span>; 
+            }</code></pre></div>
+            <p>The last CSS rules change the look and feel of the button. You can see here that we have replaced the search button with a search icon.</p>
+            <p>To do this I have changed the HTML of the button to now include a <code>svg</code>. The <code>svg</code> is an image of the search icon, it now looks like this:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
+              &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;q&#34;</span>
+               <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search...&#34;</span>
+               <span style="color:#a6e22e">aria-label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search through site content&#34;</span>&gt;
+              &lt;<span style="color:#f92672">button</span>&gt;
+                &lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">viewBox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0 0 1024 1024&#34;</span>&gt;&lt;<span style="color:#f92672">path</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path1&#34;</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 <br> 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 <br> 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z&#34;</span>&gt;&lt;/<span style="color:#f92672">path</span>&gt;&lt;/<span style="color:#f92672">svg</span>&gt;
+              &lt;/<span style="color:#f92672">button</span>&gt;
+            &lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
+            <p>We can then style these two html elements like this:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">button</span> {
+              <span style="color:#66d9ef">all</span>: <span style="color:#66d9ef">unset</span>;
+              <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+              <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+            }
+            
+            <span style="color:#f92672">svg</span> {
+              <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+              fill: <span style="color:#66d9ef">currentColor</span>;
+              <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>;
+              <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+            }</code></pre></div>
+            <p>We have used the <code>all: unset;</code> rule again to reset the button to its default. Then set a height and width of <code>44px</code> this is a good size for fingers on touch screens.</p>
+            <p>Then we set the height and width of the icon and set the color to white (&quot;#fff&rdquo;).</p>
+            <p>Now our search bar is almost ready! Except nothing happens when we press the search button.</p>
+            <p>The last step for us is to hook up the button to JavaScript.</p>
+            <h2 id="javascript">JavaScript</h2>
+            <p>We are going to do a Google search when someone searches in our search bar.</p>
+            <p>To do this we need to write some code that will:</p>
+            <ul>
+            <li>Add an event listener to the form so we know when someone presses the search button</li>
+            <li>Get the text value from the query box</li>
+            <li>Build a Google URL that searches a specific site</li>
+            <li>Opens a new tab with Google and the search query</li>
+            </ul>
+            <p>Google allows you to search a specific site if you add <code>site:</code> to the query. For example, if you wanted to search PageDart for the term lazy loading you could add this in Google:</p>
+            <p><code>site:pagedart.com lazy loading</code></p>
+            <p>The great thing about this search query is that it only returns results for the site you specify. You filter Google results and no other site will appear in the results. We can use this trick to create a search results page from our search bar.</p>
+            <p>Here is the code that can do this:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;form&#39;</span>);
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;query&#39;</span>);
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.google.com/search?q=site%3A+&#39;</span>;
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pagedart.com&#39;</span>;
+            
+            <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">submitted</span>(<span style="color:#a6e22e">event</span>) {
+              <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+              <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">value</span>;
+              <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">win</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">url</span>, <span style="color:#e6db74">&#39;_blank&#39;</span>);
+              <span style="color:#a6e22e">win</span>.<span style="color:#a6e22e">focus</span>();
+            }
+            
+            <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#a6e22e">submitted</span>);
+            </code></pre></div>
+            <p>The first thing we do is attach some variables to the form and search input box. Then we set the Google URL and set the site variable:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;form&#39;</span>);
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;query&#39;</span>);
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.google.com/search?q=site%3A+&#39;</span>;
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pagedart.com&#39;</span>;
+            </code></pre></div>
+            <p>If you want to search your site then change <code>const site = 'pagedart.com';</code> to your website <code>const site = 'example.com';</code>.</p>
+            <p>We then <a href="https://pagedart.com/blog/how-to-call-a-function-in-javascript/">create a function</a> that will run each time someone presses the search button. The function will then open Google in a new tab in the browser:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">submitted</span>(<span style="color:#a6e22e">event</span>) {
+              <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+              <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">value</span>;
+              <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">win</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">url</span>, <span style="color:#e6db74">&#39;_blank&#39;</span>);
+              <span style="color:#a6e22e">win</span>.<span style="color:#a6e22e">focus</span>();
+            }
+            </code></pre></div>
+            <p>The last line in the code:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#a6e22e">submitted</span>);
+            </code></pre></div>
+            <p>Add a listener to the form. It will listen for the submit button press and run the function each time.</p>
+            <p>Now when you enter a search query and press the search icon a new tab will open up with your site and the search query.</p>
+            <h2 id="complete-solution">Complete Solution</h2>
+            <p>Now we have covered all the parts of a search bar:</p>
+            <ul>
+            <li>HTML of the form</li>
+            <li>CSS to add color and design</li>
+            <li>JavaScript to process the form input</li>
+            </ul>
+            <p>You can see a working <a href="https://codepen.io/pagedart/pen/VwvzEbx">codepen</a> example.</p>
+            <p>Here is the complete HTML:</p>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+            &lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;en&#39;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>&gt;
+              &lt;<span style="color:#f92672">head</span>&gt;
+                &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>&gt;
+                &lt;<span style="color:#f92672">title</span>&gt;Search Bar Demo&lt;/<span style="color:#f92672">title</span>&gt;
+                &lt;<span style="color:#f92672">style</span>&gt;
+                    <span style="color:#f92672">body</span> {
+                    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#3745c2</span>;
+                    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>;
+                  }
+            
+                  <span style="color:#f92672">form</span> {
+                    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#4654e1</span>;
+                    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">flex</span>;
+                    <span style="color:#66d9ef">flex-direction</span>:<span style="color:#66d9ef">row</span>;
+                    <span style="color:#66d9ef">align-items</span>:<span style="color:#66d9ef">center</span>;
+                  }
+            
+                  <span style="color:#f92672">input</span> {
+                    <span style="color:#66d9ef">all</span>: <span style="color:#66d9ef">unset</span>;
+                    <span style="color:#66d9ef">font</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span> system-ui;
+                    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+                    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+                    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+                    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+                  }
+            
+                  ::<span style="color:#a6e22e">placeholder</span> {
+                    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+                    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0.7</span>; 
+                  }
+            
+                  <span style="color:#f92672">svg</span> {
+                    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+                    fill: <span style="color:#66d9ef">currentColor</span>;
+                    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+                  }
+            
+                  <span style="color:#f92672">button</span> {
+                    <span style="color:#66d9ef">all</span>: <span style="color:#66d9ef">unset</span>;
+                    <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+                    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+                    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;
+                  }
+                &lt;/<span style="color:#f92672">style</span>&gt;
+              &lt;/<span style="color:#f92672">head</span>&gt;
+              &lt;<span style="color:#f92672">body</span>&gt;
+                &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
+                  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;q&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search...&#34;</span> <span style="color:#a6e22e">aria-label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search through site content&#34;</span>&gt;
+                  &lt;<span style="color:#f92672">button</span>&gt;
+                    &lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">viewBox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0 0 1024 1024&#34;</span>&gt;&lt;<span style="color:#f92672">path</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path1&#34;</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z&#34;</span>&gt;&lt;/<span style="color:#f92672">path</span>&gt;&lt;/<span style="color:#f92672">svg</span>&gt;
+                  &lt;/<span style="color:#f92672">button</span>&gt;
+                &lt;/<span style="color:#f92672">form</span>&gt;
+                &lt;<span style="color:#f92672">script</span>&gt;
+                  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;form&#39;</span>);
+                  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;query&#39;</span>);
+                  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.google.com/search?q=site%3A+&#39;</span>;
+                  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pagedart.com&#39;</span>;
+            
+                  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">submitted</span>(<span style="color:#a6e22e">event</span>) {
+                    <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">google</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">value</span>;
+                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">win</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">url</span>, <span style="color:#e6db74">&#39;_blank&#39;</span>);
+                    <span style="color:#a6e22e">win</span>.<span style="color:#a6e22e">focus</span>();
+                  }
+            
+                  <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#a6e22e">submitted</span>);
+                &lt;/<span style="color:#f92672">script</span>&gt;
+              &lt;/<span style="color:#f92672">body</span>&gt;
+            &lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+        
+       
+    </body>
+</html>
