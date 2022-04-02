@@ -105,3 +105,9 @@ img.viewport {
 * {
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
