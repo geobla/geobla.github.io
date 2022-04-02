@@ -91,9 +91,9 @@ img.viewport {
 }
 
 body {
-  padding: 25px;
-  background-color: white;
-  color: black;
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .dark-mode {
