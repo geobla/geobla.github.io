@@ -39,3 +39,9 @@
   color: rgb(255, 0, 13);
   background-color: rgba(222, 222, 222, 0.3);
 }
+
+body {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
