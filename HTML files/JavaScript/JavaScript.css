@@ -57,3 +57,9 @@ iframe {
   width: 700px;
   height: 500px;
 }
+
+body {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
